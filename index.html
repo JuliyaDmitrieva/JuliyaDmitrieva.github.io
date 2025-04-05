@@ -1,51 +1,105 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QA Тестировщик | Котики приветствуют вас!</title>
-	<link rel="stylesheet" href="style.css">
+    <title>Дмитриева Юлия</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <img src="me.png" class="cat-icon" alt="cat">
-        <h1>Юлия Дмитриева</h1>
-        <p class="subtitle">Junior QA Engineer | Любитель котиков</p>
-    </header>
+    <!-- Интерактивные обои с котами -->
+    <div class="wallpaper" id="wallpaper"></div>
     
-    <section>
-        <h2>Обо мне</h2>
-        <p>Привет! Я начинающий тестировщик с большим желанием находить баги и делать цифровые продукты лучше. Как и котики, я люблю исследовать каждый уголок (в моем случае - веб-приложений).</p>
-        <p>В свободное время учу новые технологии, читаю документацию и, конечно, глажу котиков.</p>
-    </section>
+    <!-- Анимированный курсор-кот -->
+    <div class="cursor-follower" id="cursor"></div>
     
-    <section>
-        <h2>Навыки</h2>
-        <ul>
-            <li>Ручное тестирование веб, бэк и баз данных</li>
-            <li>Составление тест-кейсов и чек-листов</li>
-            <li>Базовые знания SQL (SELECT, JOIN, WHERE)</li>
-            <li>Работа с DevTools, Postman</li>
-            <li>Понимание клиент-серверной архитектуры</li>
-            <li>Основы HTML/CSS (могу найти элемент на странице)</li>
-            <li>Работа с Jira, TestIT</li>
-            <li>Умение спать в самых неудобных позах (как котик)</li>
-        </ul>
-    </section>
-    
-    <section>
-        <h2>Контакты</h2>
-        <p>Если хотите предложить работу или просто поговорить о котиках:</p>
-        <div class="contacts">
-            <div class="contact-item">📧  proskuryakova.july@yandex.ru</div>
-            <div class="contact-item">📱 @juliya_dmitrievaa</div>
-            <!-- <div class="contact-item">🐱 github.com/</div> -->
+    <div class="container">
+        <header>
+            <div class="avatar">
+                <img src="foto.jpg" alt="">
+            </div>
+            <h1>Дмитриева Юлия</h1>
+            <h2>QA-тестировщик</h2>
+            <!-- <p>Нахожу баги в темноте</p> -->
+        </header>
+        
+        <div class="content">
+            <section class="card">
+                <h2><span class="cats">🐈‍⬛</span> Обо мне</h2>
+                <p>Как чёрный кот в тёмной комнате, я найду любой баг, даже если его специально не видно. Специализируюсь на тестировании веб-приложений и мобильных приложений.</p>
+                <p>Люблю ручное тестирование, но ценю и автоматизацию - иногда только человеческий взгляд может найти неочевидные проблемы.</p>
+            </section>
+            
+            <section class="card">
+                <h2>🛠️ Навыки</h2>
+                <div class="skills">
+                    <span class="skill">Тест-кейсы</span>
+                    <span class="skill">Postman</span>
+                    <span class="skill">JIRA</span>
+                    <span class="skill">Charles</span>
+                    <span class="skill">DevTools</span>
+                    <span class="skill">Чек-листы</span>
+                    <span class="skill">SQL</span>
+                    <span class="skill">Работа с требованиями (Confluence)</span>
+                </div>
+            </section>
+            
+            <section class="card">
+                <h2>📞 Контакты</h2>
+                <p>Если хотите предложить работу или угнать меня в тёплую компанию:</p>
+                <p>✉️ proskuryakova.july@yandex.ru</p>
+                <p>📱 @juliya_dmitrievaa</p>
+            </section>
         </div>
-    </section>
+        
+        <footer>
+            <p>© 2025 Чёрный Котик Тестировщик. Все права защищены.</p>
+            <p>Сайт сделан с любовью и девятью жизнями</p>
+        </footer>
+    </div>
     
-    <footer>
-        <p>© 2025 Юлия Дмитриева. Все права защищены. Котики одобряют.</p>
-        <p style="margin-top: 5px;">🐾 🐾 🐾</p>
-    </footer>
+    <script>
+        // Создаем интерактивные обои с котами
+        const wallpaper = document.getElementById('wallpaper');
+        const catsCount = window.innerWidth > 768 ? 15 : 8;
+        
+        for (let i = 0; i < catsCount; i++) {
+            const cat = document.createElement('div');
+            cat.className = 'cat-particle';
+            
+            // Случайные параметры для кота
+            const size = Math.random() * 30 + 20;
+            const delay = Math.random() * 15;
+            const duration = 10 + Math.random() * 20;
+            const left = Math.random() * 100;
+            
+            cat.style.width = `${size}px`;
+            cat.style.height = `${size}px`;
+            cat.style.left = `${left}%`;
+            cat.style.animationDelay = `${delay}s`;
+            cat.style.animationDuration = `${duration}s`;
+            
+            wallpaper.appendChild(cat);
+        }
+        
+        // Анимированный курсор-кот
+        // const cursor = document.getElementById('cursor');
+        // document.addEventListener('mousemove', (e) => {
+        //     cursor.style.left = `${e.clientX}px`;
+        //     cursor.style.top = `${e.clientY}px`;
+        // });
+        
+        // Интерактивность при наведении
+        const interactiveElements = document.querySelectorAll('a, button, .card');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+        });
+    </script>
 </body>
 </html>
